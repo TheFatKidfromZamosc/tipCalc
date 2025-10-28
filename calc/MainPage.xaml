@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="calc.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20,0"
+            Spacing="15">
+            <Label
+                Text="Kalkulator Napiwków"
+                    TextColor="White"
+                FontAttributes="Bold"
+                FontSize="28"
+                BackgroundColor="Blue"
+                Padding="20"
+                />
+            <HorizontalStackLayout>
+                <Label Text="Kwota rachunku" HorizontalOptions="Center" />
+                <Entry
+                x:Name="kwotaRachunku"
+                    HorizontalOptions="Center"
+                Placeholder="Wprowadź kwotę rachunku"
+                Keyboard="Numeric" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Procent napiwku" HorizontalOptions="Center" />
+                <Slider
+                    ValueChanged="OnSliderValueChanged"
+                    HorizontalOptions="Center"
+                    x:Name="procentNapiwku"
+                    Minimum="0"
+                    Maximum="30"
+             
+                    Value="15"
+                    WidthRequest="200" />
+                <Label
+                    x:Name="sliderValue"
+                    Text="{Binding Source={x:Reference procentNapiwku}, 
+                            Path=Value
+                        }" 
+                    />
+            </HorizontalStackLayout>
+            
+            <Button
+                x:Name="oblicz"
+                Text="Oblicz" 
+                BackgroundColor="Green"
+                Clicked="OnButtonClicked"
+                 MinimumHeightRequest="50" 
+                 TextColor="white"
+                HorizontalOptions="Fill" />
+
+            <HorizontalStackLayout>
+            
+                <Label
+                x:Name="napiwekLabel" Text="" FontSize="20" FontAttributes="Bold" TextColor="DarkBlue" Margin="20" />
+                <Label
+                x:Name="wynikLabel" Text=""  FontSize="20" FontAttributes="Bold" TextColor="DarkBlue" Margin="20" />
+            </HorizontalStackLayout>
+            <Button
+                x:Name="reset"
+                Text="Resetuj" 
+                MinimumHeightRequest="50" 
+                TextColor="white"
+                BackgroundColor="Orange"
+                Clicked="OnResetClicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
