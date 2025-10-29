@@ -42,7 +42,24 @@
                         }" 
                     />
             </HorizontalStackLayout>
-            
+
+            <HorizontalStackLayout>
+                <Picker
+                    SelectedItem="PLN"
+                    SelectedIndex="1"
+                    SelectedIndexChanged="OnPickerIndexChanged"
+                    x:Name="rodzajWaluty"
+                    HorizontalOptions="Center"
+                    Title="Wybierz walutę">
+                    <Picker.Items>
+                        <x:String>PLN</x:String>
+                        <x:String>USD</x:String>
+                        <x:String>EUR</x:String>
+                        <x:String>GBP</x:String>
+                    </Picker.Items>
+                </Picker>
+            </HorizontalStackLayout>
+
             <Button
                 x:Name="oblicz"
                 Text="Oblicz" 
